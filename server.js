@@ -34,7 +34,7 @@ app.get("/notes", (req, res) =>
 // Gets the routes to the public doc
 // Gets the index.html route
 // GET * should return the index.html file.
-app.get("*", (req, res) => 
+app.get("*", (req, res) =>
   res.sendFile(path.join(__dirname, "/public/index.html"))
 );
 
@@ -56,8 +56,8 @@ app.post("/api/notes", (req, res) => {
     database.push(response);
     fs.writeFile("./db/db.json", JSON.stringify(database), (err) =>
       err ?
-      console.error(error) :
-      console.log("note added")
+        console.error(error) :
+        console.log("note added")
     );
     // Sends a response with a note that says note is added to list
     res.send("note added to the list");
@@ -69,15 +69,15 @@ app.post("/api/notes", (req, res) => {
 app.delete("/api/notes/:id", (req, res) => {
   const { id } = req.params;
   for (let i of database) {
-    if(i.id === id) {
-    database.splice(i).join("");
-    console.log(database);
-  }
+    if (i.id === id) {
+      database.splice(i, 1).join("");
+      console.log(database);
+    }
   }
   fs.writeFile(`./db/db.json`, JSON.stringify(database), (err) =>
     err ?
-    console.err(err) :
-    console.log("added note")
+      console.err(err) :
+      console.log("added note")
   );
   res.send("deleted");
 })
