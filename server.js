@@ -66,10 +66,12 @@ app.post("/api/notes", (req, res) => {
   }
 });
 
+// Deletes note from the list
 app.delete("/api/notes/:id", (req, res) => {
   const { id } = req.params;
   for (let i of database) {
     if (i.id === id) {
+      // Aims at the ID and deletes the note
       database.splice(i, 1).join("");
       console.log(database);
     }
@@ -77,7 +79,7 @@ app.delete("/api/notes/:id", (req, res) => {
   fs.writeFile(`./db/db.json`, JSON.stringify(database), (err) =>
     err ?
       console.err(err) :
-      console.log("added note")
+      console.log("removed note")
   );
   res.send("deleted");
 })
