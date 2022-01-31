@@ -15,7 +15,7 @@ The motiviation behind this project was to create a webpage that would
 
 ## Installation
 
-Go to github, and git clone this project. Run npm i in the command line to download necessary files. Run npm i to start. You could also just go to the deployed page at: https://mysterious-basin-13960.herokuapp.com/ .
+Go to github, and git clone this project. Run npm i in the command line to download necessary files. Run npm i to start. You could also just go to the deployed page at: https://tranquil-chamber-13396.herokuapp.com/ .
 
 ## Usage
 
