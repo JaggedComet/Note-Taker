@@ -66,6 +66,21 @@ app.post("/api/notes", (req, res) => {
   }
 });
 
+app.delete("/api/notes/:id", (req, res) => {
+  const { id } = req.params;
+  for (let i of database) {
+    if(i.id === id) {
+    database.splice(i).join("");
+    console.log(database);
+  }
+  }
+  fs.writeFile(`./db/db.json`, JSON.stringify(database), (err) =>
+    err ?
+    console.err(err) :
+    console.log("added note")
+  );
+  res.send("deleted");
+})
 
 
 app.listen(PORT, () =>
